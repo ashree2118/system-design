@@ -1,12 +1,13 @@
 import "dotenv/config";
 import readline from "readline";
 import { SystemMessage, HumanMessage } from "@langchain/core/messages";
-import { ChatOpenAI } from "@langchain/openai";
+import { ChatGroq } from "@langchain/groq";
 import { ChatPromptTemplate } from "@langchain/core/prompts";
 import { StringOutputParser } from "@langchain/core/output_parsers";
 
-const model = new ChatOpenAI({
-    apiKey: process.env.OPENAI_API_KEY,
+const model = new ChatGroq({
+  apiKey: process.env.GROQ_API_KEY,
+  model: "llama-3.3-70b-versatile",
 });
 
 const askModel = async (input: string) => {
